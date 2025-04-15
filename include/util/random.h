@@ -12,6 +12,8 @@ _LIBSEVEN_EXTERN_C
 
 extern void randSetSeed(uint32_t seed);
 
+extern void randSetFullState(uint32_t seed);
+
 extern uint32_t randNext(void);
 
 _LIBSEVEN_EXTERN_C_END

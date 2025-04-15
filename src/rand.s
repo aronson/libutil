@@ -23,6 +23,19 @@ fn randSetSeed thumb
     bx          lr
 endfn
 
+@ void randSetFullState(u32 seed)
+@
+fn randSetFullState thumb
+    ldr         r1, =XOSHIRO_STATE  @ Load state array address
+    str         r0, [r1]            @ Store seed in first word [0]
+    movs        r2, #0              @ Zero register for middle words
+    str         r2, [r1, #4]        @ Set second word [1] to 0
+    str         r2, [r1, #8]        @ Set third word [2] to 0
+    movs        r2, #1              @ Prepare final value
+    str         r2, [r1, #12]       @ Set fourth word [3] to 1
+    bx          lr                  @ Return
+endfn
+
 @ u32 randNext(void)
 @
 @ Implementation of the Xoshiro128++ PRNG.

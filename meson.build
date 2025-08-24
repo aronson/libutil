@@ -17,6 +17,7 @@ sources = [
   'src/log.c',
   'src/profile.s',
   'src/rand.s',
+  'src/rand2.s',
   'src/simd.s',
 ]
 
